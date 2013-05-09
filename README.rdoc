@@ -71,6 +71,6 @@ Then run the following command in the gem folder:
 
 == Copyright
 
-Copyright (c) 2011 Belkacem REBBOUH. See LICENSE.txt for
+Copyright (c) 2013 Belkacem REBBOUH. See LICENSE.txt for
 further details.
 
