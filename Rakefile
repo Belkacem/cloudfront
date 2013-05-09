@@ -15,7 +15,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "cloudfront"
-  gem.version = '1.1'
+  gem.version = '1.2'
   gem.homepage = "https://github.com/Belkacem/cloudfront"
   gem.license = "MIT"
   gem.summary = %Q{A tested Cloudfront™ gem}
