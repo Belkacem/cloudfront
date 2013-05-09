@@ -36,4 +36,8 @@ MiniTest::Unit.autorun
 
 require 'yaml'
 yml = File.join(File.expand_path(File.dirname(__FILE__)), 'aws_credentials.yml')
-AWS_CREDENTIALS = YAML.load(File.open(yml))
+if (File.exists? yml)
+  AWS_CREDENTIALS = YAML.load(File.open(yml))
+else
+  AWS_CREDENTIALS = { aws_access_key_id: "key_id", aws_secret_access_key: "secret_key"}
+end
