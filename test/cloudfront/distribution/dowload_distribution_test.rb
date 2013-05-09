@@ -54,14 +54,6 @@ class Cloudfront
         end
       end
 
-      def test_download_distribution_get
-        VCR.use_cassette('download_distribution/get') do
-          actual = @cloudfront.download_distribution_get("E30FYUOU1WV09Z")
-          expected_status = 200
-          assert_equal(expected_status, actual.status)
-        end
-      end
-
       def test_download_distribution_get_config
         VCR.use_cassette('download_distribution/get_config_disabled') do
           actual = @cloudfront.download_distribution_get_config("E30FYUOU1WV09Z")
