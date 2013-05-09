@@ -26,7 +26,6 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
-    timecop (0.6.1)
     vcr (1.11.3)
     webmock (1.7.10)
       addressable (~> 2.2, > 2.2.5)
@@ -45,7 +44,6 @@ DEPENDENCIES
   multi_xml
   nokogiri
   simplecov
-  timecop
   vcr (~> 1.11.3)
   webmock (~> 1.7.0)
   yard

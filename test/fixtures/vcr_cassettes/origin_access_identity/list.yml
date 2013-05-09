@@ -1,0 +1,31 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/origin-access-identity/cloudfront
+    body: 
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:U9yjMpbgMosaNDqmR+rknAUnTUc=
+      date:
+      - Wed, 08 May 2013 18:51:06 GMT
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-amzn-requestid:
+      - 3da83f77-b810-11e2-8100-3150fbb1f16b
+      content-type:
+      - text/xml
+      content-length:
+      - '590'
+      date:
+      - Wed, 08 May 2013 18:51:06 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <CloudFrontOriginAccessIdentityList xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><Marker></Marker><MaxItems>100</MaxItems><IsTruncated>false</IsTruncated><Quantity>1</Quantity><Items><CloudFrontOriginAccessIdentitySummary><Id>E19SYAD0RHLA79</Id><S3CanonicalUserId>ff39d98a546e509fc04ae0a5c5cceb204632213d3a3e9e6c1937a3f9a0eec665e3f6f03c63f0bf0600df7ddd5b4d3672</S3CanonicalUserId><Comment>Created
+      with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment></CloudFrontOriginAccessIdentitySummary></Items></CloudFrontOriginAccessIdentityList>'
+    http_version: '1.1'

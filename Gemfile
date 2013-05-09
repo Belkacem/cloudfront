@@ -14,5 +14,4 @@ group :development do
   gem 'simplecov', :require => false
   gem "vcr", "~> 1.11.3"
   gem "webmock", "~> 1.7.0"
-  gem "timecop"
 end

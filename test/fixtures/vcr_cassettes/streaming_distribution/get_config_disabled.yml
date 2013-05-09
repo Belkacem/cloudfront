@@ -1,0 +1,34 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/streaming-distribution/ECO1BY8RW36Z9/config
+    body: 
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:+Zy+WiFBYRmKLqJUURampZsI/Rk=
+      date:
+      - Wed, 08 May 2013 19:57:21 GMT
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-amzn-requestid:
+      - 7ee1b304-b819-11e2-998d-5d3e9d1aedd9
+      etag:
+      - E103OYOBYVGHDZ
+      content-type:
+      - text/xml
+      content-length:
+      - '926'
+      date:
+      - Wed, 08 May 2013 19:57:21 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <StreamingDistributionConfig xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><CallerReference>2013-05-08T21:55:12+02:00
+      3916287814</CallerReference><S3Origin><DomainName>belkacem.rebbouh.com.s3.amazonaws.com</DomainName><OriginAccessIdentity>origin-access-identity/cloudfront/E1WAPXK5AQJ6A9</OriginAccessIdentity></S3Origin><Aliases><Quantity>2</Quantity><Items><CNAME>belkacem.rebbouh.com</CNAME><CNAME>belka.rebbouh.com</CNAME></Items></Aliases><Comment>Created
+      with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment><Logging><Enabled>true</Enabled><Bucket>belkacem.rebbouh.com.s3.amazonaws.com</Bucket><Prefix>distribution_test</Prefix></Logging><TrustedSigners><Enabled>true</Enabled><Quantity>1</Quantity><Items><AwsAccountNumber>self</AwsAccountNumber></Items></TrustedSigners><PriceClass>PriceClass_All</PriceClass><Enabled>false</Enabled></StreamingDistributionConfig>'
+    http_version: '1.1'

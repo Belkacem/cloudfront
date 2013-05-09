@@ -1,0 +1,24 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :delete
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/origin-access-identity/cloudfront/E19SYAD0RHLA79
+    body: 
+    headers:
+      if-match:
+      - EE6LQNRXWH0UQ
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:7aukvyBMIUkDeMsjPACNe6ymaTw=
+      date:
+      - Wed, 08 May 2013 19:05:05 GMT
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 204
+      message: No Content
+    headers:
+      x-amzn-requestid:
+      - 31cc4974-b812-11e2-acb4-dfe9300aeb9a
+      date:
+      - Wed, 08 May 2013 19:05:06 GMT
+    body: 
+    http_version: '1.1'

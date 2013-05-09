@@ -1,0 +1,33 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/origin-access-identity/cloudfront/E19SYAD0RHLA79/config
+    body: 
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:baPbifKK40rz09ba3hgtOWCUgGA=
+      date:
+      - Wed, 08 May 2013 18:54:52 GMT
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-amzn-requestid:
+      - c427b477-b810-11e2-998d-5d3e9d1aedd9
+      etag:
+      - EE6LQNRXWH0UQ
+      content-type:
+      - text/xml
+      content-length:
+      - '317'
+      date:
+      - Wed, 08 May 2013 18:54:51 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <CloudFrontOriginAccessIdentityConfig xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><CallerReference>2013-05-08T11:58:37+02:00
+      737090926</CallerReference><Comment>Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment></CloudFrontOriginAccessIdentityConfig>'
+    http_version: '1.1'

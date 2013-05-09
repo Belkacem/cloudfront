@@ -1,0 +1,61 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/distribution/E30FYUOU1WV09Z
+    body: 
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:aS5EuSWj7o7+zEPJT4+k5ePFBLU=
+      date:
+      - Wed, 08 May 2013 10:07:24 GMT
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "eC1hbXpuLXJlcXVlc3RpZA==":
+      - !binary |-
+        MTUxZjNkZjctYjdjNy0xMWUyLThkNjUtNGZhYTNkYTg2NDVi
+      !binary "ZXRhZw==":
+      - !binary |-
+        RTFNRk1KUVhPV1Q5V0U=
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        dGV4dC94bWw=
+      !binary "dHJhbnNmZXItZW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Y29udGVudC1lbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "dmFyeQ==":
+      - !binary |-
+        QWNjZXB0LUVuY29kaW5n
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        V2VkLCAwOCBNYXkgMjAxMyAxMDowNzoyNCBHTVQ=
+    body: !binary |-
+      H4sIAAAAAAAAANVVy1LbMBTd9ysyLNvGsmMgISPEgKFtZnikEGDaDaPYN45A
+      ljKSnEC/vvIzjklh0W668IzuQ1dH5x754qPnhHeWoDST4nDHc9ydI/IBnzJt
+      FJumxno7NkPow525MYshQiGXaTRTUhiHJvSXFHSlnVAmKJIh6rler+v2u66H
+      dggeReTMd7/8uL269e7v3IOfGFkXvjHUpJqMxFjJWIHWGJUufE61uZARmzGI
+      JiwBYgv6XXev6w4m7sFwbzD0B86+n1V6lYrXBUdiSTmLaAb/hJpwDpq49vA3
+      E/CpTCgTl9TWivxd9tSP+4NHbj+ncWcBBqNGJj4ODVvCRKXaQHTDYmG5JPhM
+      0CmHiMwo14BRZeLvKRWGmZcMTr3GaHuRZhcCKWYsJjignIO6hhkoEOEGQZ6X
+      E9T/5PaGrtvp+/2DPf/A6+1j1N6FjzmjOrt0DaLXBDQykNhgcHl8cUbgmSYL
+      Dr2sy7ZU7tsMeRshVO5G9SGnMKMpN9dSmqvpI4SGMBHBs7OYLyyZr4L4SrGY
+      iSY6bwu6IiuX2ZTLuBBXozWZ01Ewncp0XgBs9i2wXMukqFGR+20yGY+lMmRg
+      21MbufsmX+7u+kWgMEsIVlVGhpKPJWfhC0kyQXWXDFagMNqaYrnacjyqblQz
+      WBNRkhRQK9UTmNMlk4rgCVUxmCKpZqHlxF+kWlEVQXRHeVq0HNTLjVWWiIlR
+      KWTUrj04kPKJZXnlRmK1g1FlWORVHL2q/JevoL39LqewRZ1FI1fdHNPWOL5g
+      YjI5J4P9XdeWL61aZi0GN8z3BNfaO6Zmbj8DSpCPzuPCct90/YPulLy93Z7V
+      nBng9lfRaNJ95YMoU/t7F8tfRFgUxqh4H7UGX9f6XyXQ6l99w7YIApkkIAwJ
+      FFALprNiZt5Zz4DOV0g+d5ZMM9PJhqK2UzG2Kek0n4MnwJ9oCEljUmaMFSXx
+      uYzjvI8VE8ULrHkZiZCnEVQMl7S1vPgkDZ/AkGl5VPMv52h/czBjVGbjsYIZ
+      eyYGtHmIGrPF6raI2KlawRsrFkLAqdZkvXw4zjhvhP7YXrRtdm04yW9ffNBK
+      ewgAAA==
+    http_version: '1.1'

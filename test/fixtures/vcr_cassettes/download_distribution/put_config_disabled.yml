@@ -1,0 +1,60 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :put
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/distribution/E30FYUOU1WV09Z/config
+    body: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<DistributionConfig xmlns=\"http://cloudfront.amazonaws.com/doc/2012-07-01/\">\n
+      \ <CallerReference>2013-05-08T11:58:37+02:00 7379539126</CallerReference>\n
+      \ <Aliases>\n    <Quantity>2</Quantity>\n    <Items>\n      <CNAME>example2.com</CNAME>\n
+      \     <CNAME>example1.com</CNAME>\n    </Items>\n  </Aliases>\n  <DefaultRootObject>index.php</DefaultRootObject>\n
+      \ <Origins>\n    <Quantity>1</Quantity>\n    <Items>\n      <Origin>\n        <Id>blog</Id>\n
+      \       <DomainName>blog.rebbouh.com</DomainName>\n        <CustomOriginConfig>\n
+      \         <HTTPPort>80</HTTPPort>\n          <HTTPSPort>443</HTTPSPort>\n          <OriginProtocolPolicy>match-viewer</OriginProtocolPolicy>\n
+      \       </CustomOriginConfig>\n      </Origin>\n    </Items>\n  </Origins>\n
+      \ <DefaultCacheBehavior>\n    <TargetOriginId>blog</TargetOriginId>\n    <ForwardedValues>\n
+      \     <QueryString>true</QueryString>\n      <Cookies>\n        <Forward>all</Forward>\n
+      \     </Cookies>\n    </ForwardedValues>\n    <TrustedSigners>\n      <Enabled>false</Enabled>\n
+      \     <Quantity>0</Quantity>\n    </TrustedSigners>\n    <ViewerProtocolPolicy>allow-all</ViewerProtocolPolicy>\n
+      \   <MinTTL>86400</MinTTL>\n  </DefaultCacheBehavior>\n  <CacheBehaviors>\n
+      \   <Quantity>1</Quantity>\n    <Items>\n      <CacheBehavior>\n        <PathPattern>*.jpg</PathPattern>\n
+      \       <TargetOriginId>blog</TargetOriginId>\n        <ForwardedValues>\n          <QueryString>false</QueryString>\n
+      \         <Cookies>\n            <Forward>whitelist</Forward>\n            <WhitelistedNames>\n
+      \             <Quantity>1</Quantity>\n              <Items>\n                <Name>cookies</Name>\n
+      \             </Items>\n            </WhitelistedNames>\n          </Cookies>\n
+      \       </ForwardedValues>\n        <TrustedSigners>\n          <Enabled>false</Enabled>\n
+      \         <Quantity>0</Quantity>\n        </TrustedSigners>\n        <ViewerProtocolPolicy>allow-all</ViewerProtocolPolicy>\n
+      \       <MinTTL>86400</MinTTL>\n      </CacheBehavior>\n    </Items>\n  </CacheBehaviors>\n
+      \ <Comment>Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment>\n
+      \ <Logging>\n    <Enabled>true</Enabled>\n    <IncludeCookies>false</IncludeCookies>\n
+      \   <Bucket>belkacem.rebbouh.com.s3.amazonaws.com</Bucket>\n    <Prefix>test_distribution</Prefix>\n
+      \ </Logging>\n  <PriceClass>PriceClass_All</PriceClass>\n  <Enabled>false</Enabled>\n</DistributionConfig>\n"
+    headers:
+      if-match:
+      - E18CJ9IJR688VF
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:CH++AIjSmoDh7maJ87lw+Pv3v0w=
+      date:
+      - Wed, 08 May 2013 10:34:44 GMT
+      content-type:
+      - text/xml
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-amzn-requestid:
+      - e5f8c9f3-b7ca-11e2-998d-5d3e9d1aedd9
+      etag:
+      - EKPC4B9L5JKZB
+      content-type:
+      - text/xml
+      content-length:
+      - '2171'
+      date:
+      - Wed, 08 May 2013 10:34:44 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <Distribution xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><Id>E30FYUOU1WV09Z</Id><Status>InProgress</Status><LastModifiedTime>2013-05-08T10:34:44.548Z</LastModifiedTime><InProgressInvalidationBatches>0</InProgressInvalidationBatches><DomainName>d34ik7g78jl78j.cloudfront.net</DomainName><ActiveTrustedSigners><Enabled>false</Enabled><Quantity>0</Quantity></ActiveTrustedSigners><DistributionConfig><CallerReference>2013-05-08T11:58:37+02:00
+      7379539126</CallerReference><Aliases><Quantity>2</Quantity><Items><CNAME>example2.com</CNAME><CNAME>example1.com</CNAME></Items></Aliases><DefaultRootObject>index.php</DefaultRootObject><Origins><Quantity>1</Quantity><Items><Origin><Id>blog</Id><DomainName>blog.rebbouh.com</DomainName><CustomOriginConfig><HTTPPort>80</HTTPPort><HTTPSPort>443</HTTPSPort><OriginProtocolPolicy>match-viewer</OriginProtocolPolicy></CustomOriginConfig></Origin></Items></Origins><DefaultCacheBehavior><TargetOriginId>blog</TargetOriginId><ForwardedValues><QueryString>true</QueryString><Cookies><Forward>all</Forward></Cookies></ForwardedValues><TrustedSigners><Enabled>false</Enabled><Quantity>0</Quantity></TrustedSigners><ViewerProtocolPolicy>allow-all</ViewerProtocolPolicy><MinTTL>86400</MinTTL></DefaultCacheBehavior><CacheBehaviors><Quantity>1</Quantity><Items><CacheBehavior><PathPattern>*.jpg</PathPattern><TargetOriginId>blog</TargetOriginId><ForwardedValues><QueryString>false</QueryString><Cookies><Forward>whitelist</Forward><WhitelistedNames><Quantity>1</Quantity><Items><Name>cookies</Name></Items></WhitelistedNames></Cookies></ForwardedValues><TrustedSigners><Enabled>false</Enabled><Quantity>0</Quantity></TrustedSigners><ViewerProtocolPolicy>allow-all</ViewerProtocolPolicy><MinTTL>86400</MinTTL></CacheBehavior></Items></CacheBehaviors><Comment>Created
+      with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment><Logging><Enabled>true</Enabled><IncludeCookies>false</IncludeCookies><Bucket>belkacem.rebbouh.com.s3.amazonaws.com</Bucket><Prefix>test_distribution</Prefix></Logging><PriceClass>PriceClass_All</PriceClass><Enabled>false</Enabled></DistributionConfig></Distribution>'
+    http_version: '1.1'

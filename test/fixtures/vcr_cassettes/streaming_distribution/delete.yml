@@ -1,0 +1,57 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/streaming-distribution/ECO1BY8RW36Z9/config
+    body: 
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:Z4dWwCmP5pou/82dInGksN0NnX0=
+      date:
+      - Wed, 08 May 2013 20:21:43 GMT
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-amzn-requestid:
+      - e6895176-b81c-11e2-8100-3150fbb1f16b
+      etag:
+      - E3C785485ADCHX
+      content-type:
+      - text/xml
+      content-length:
+      - '926'
+      date:
+      - Wed, 08 May 2013 20:21:43 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <StreamingDistributionConfig xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><CallerReference>2013-05-08T21:55:12+02:00
+      3916287814</CallerReference><S3Origin><DomainName>belkacem.rebbouh.com.s3.amazonaws.com</DomainName><OriginAccessIdentity>origin-access-identity/cloudfront/E1WAPXK5AQJ6A9</OriginAccessIdentity></S3Origin><Aliases><Quantity>2</Quantity><Items><CNAME>belkacem.rebbouh.com</CNAME><CNAME>belka.rebbouh.com</CNAME></Items></Aliases><Comment>Created
+      with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment><Logging><Enabled>true</Enabled><Bucket>belkacem.rebbouh.com.s3.amazonaws.com</Bucket><Prefix>distribution_test</Prefix></Logging><TrustedSigners><Enabled>true</Enabled><Quantity>1</Quantity><Items><AwsAccountNumber>self</AwsAccountNumber></Items></TrustedSigners><PriceClass>PriceClass_All</PriceClass><Enabled>false</Enabled></StreamingDistributionConfig>'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :delete
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/streaming-distribution/ECO1BY8RW36Z9
+    body: 
+    headers:
+      if-match:
+      - E3C785485ADCHX
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:zfzA9smDt8Hzd+I6/gS17sYxM9c=
+      date:
+      - Wed, 08 May 2013 20:21:44 GMT
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 204
+      message: No Content
+    headers:
+      x-amzn-requestid:
+      - e6c85578-b81c-11e2-acb4-dfe9300aeb9a
+      date:
+      - Wed, 08 May 2013 20:21:44 GMT
+    body: 
+    http_version: '1.1'

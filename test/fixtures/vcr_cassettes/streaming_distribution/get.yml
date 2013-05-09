@@ -1,0 +1,34 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/streaming-distribution/ECO1BY8RW36Z9
+    body: 
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:Jul5FbUiMU6jzH+rFR4sxp2hcWI=
+      date:
+      - Wed, 08 May 2013 19:56:38 GMT
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-amzn-requestid:
+      - 65334c4a-b819-11e2-998d-5d3e9d1aedd9
+      etag:
+      - E103OYOBYVGHDZ
+      content-type:
+      - text/xml
+      content-length:
+      - '1346'
+      date:
+      - Wed, 08 May 2013 19:56:38 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <StreamingDistribution xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><Id>ECO1BY8RW36Z9</Id><Status>InProgress</Status><LastModifiedTime>2013-05-08T19:55:13.398Z</LastModifiedTime><DomainName>so8rpta93fl29.cloudfront.net</DomainName><ActiveTrustedSigners><Enabled>true</Enabled><Quantity>1</Quantity><Items><Signer><AwsAccountNumber>self</AwsAccountNumber><KeyPairIds><Quantity>0</Quantity></KeyPairIds></Signer></Items></ActiveTrustedSigners><StreamingDistributionConfig><CallerReference>2013-05-08T21:55:12+02:00
+      3916287814</CallerReference><S3Origin><DomainName>belkacem.rebbouh.com.s3.amazonaws.com</DomainName><OriginAccessIdentity>origin-access-identity/cloudfront/E1WAPXK5AQJ6A9</OriginAccessIdentity></S3Origin><Aliases><Quantity>2</Quantity><Items><CNAME>belkacem.rebbouh.com</CNAME><CNAME>belka.rebbouh.com</CNAME></Items></Aliases><Comment>Created
+      with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment><Logging><Enabled>true</Enabled><Bucket>belkacem.rebbouh.com.s3.amazonaws.com</Bucket><Prefix>distribution_test</Prefix></Logging><TrustedSigners><Enabled>true</Enabled><Quantity>1</Quantity><Items><AwsAccountNumber>self</AwsAccountNumber></Items></TrustedSigners><PriceClass>PriceClass_All</PriceClass><Enabled>false</Enabled></StreamingDistributionConfig></StreamingDistribution>'
+    http_version: '1.1'

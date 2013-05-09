@@ -1,0 +1,35 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/distribution/E3NNQMNUOKN8IR/invalidation
+    body: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<InvalidationBatch xmlns=\"http://cloudfront.amazonaws.com/doc/2012-07-01/\">\n
+      \ <Paths>\n    <Quantity>1</Quantity>\n    <Items>\n      <Path>/favicon.ico</Path>\n
+      \   </Items>\n  </Paths>\n  <CallerReference>2013-05-09T02:01:12+02:00 5387714030</CallerReference>\n</InvalidationBatch>\n"
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:EvV4lXIVf9sc17ppMRq83OkJYT0=
+      date:
+      - Thu, 09 May 2013 00:01:12 GMT
+      content-type:
+      - text/xml
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 201
+      message: Created
+    headers:
+      x-amzn-requestid:
+      - 8fa6552f-b83b-11e2-998d-5d3e9d1aedd9
+      location:
+      - https://cloudfront.amazonaws.com/2012-07-01/distribution/E3NNQMNUOKN8IR/invalidation/I9UMIIXC1VYHY
+      content-type:
+      - text/xml
+      content-length:
+      - '392'
+      date:
+      - Thu, 09 May 2013 00:01:12 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <Invalidation xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><Id>I9UMIIXC1VYHY</Id><Status>InProgress</Status><CreateTime>2013-05-09T00:01:12.842Z</CreateTime><InvalidationBatch><Paths><Quantity>1</Quantity><Items><Path>/favicon.ico</Path></Items></Paths><CallerReference>2013-05-09T02:01:12+02:00
+      5387714030</CallerReference></InvalidationBatch></Invalidation>'
+    http_version: '1.1'

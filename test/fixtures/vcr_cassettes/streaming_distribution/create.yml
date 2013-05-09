@@ -1,0 +1,47 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/streaming-distribution
+    body: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<StreamingDistributionConfig
+      xmlns=\"http://cloudfront.amazonaws.com/doc/2012-07-01/\">\n  <CallerReference>2013-05-08T21:55:12+02:00
+      3916287814</CallerReference>\n  <S3Origin>\n    <DomainName>belkacem.rebbouh.com.s3.amazonaws.com</DomainName>\n
+      \   <DNSName>belkacem.rebbouh.com.s3.amazonaws.com</DNSName>\n    <OriginAccessIdentity>origin-access-identity/cloudfront/E1WAPXK5AQJ6A9</OriginAccessIdentity>\n
+      \ </S3Origin>\n  <Aliases>\n    <Quantity>2</Quantity>\n    <Items>\n      <CNAME>belkacem.rebbouh.com</CNAME>\n
+      \     <CNAME>belka.rebbouh.com</CNAME>\n    </Items>\n  </Aliases>\n  <Comment>Created
+      with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment>\n
+      \ <Logging>\n    <Enabled>true</Enabled>\n    <Bucket>belkacem.rebbouh.com.s3.amazonaws.com</Bucket>\n
+      \   <Prefix>distribution_test</Prefix>\n  </Logging>\n  <TrustedSigners>\n    <Enabled>true</Enabled>\n
+      \   <Quantity>1</Quantity>\n    <Items>\n      <AwsAccountNumber>self</AwsAccountNumber>\n
+      \   </Items>\n  </TrustedSigners>\n  <PriceClass>PriceClass_All</PriceClass>\n
+      \ <Enabled>false</Enabled>\n</StreamingDistributionConfig>\n"
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:oLaehKxNHmKYj/OcGxNaiAfFzsw=
+      date:
+      - Wed, 08 May 2013 19:55:12 GMT
+      content-type:
+      - text/xml
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 201
+      message: Created
+    headers:
+      x-amzn-requestid:
+      - 32515461-b819-11e2-8100-3150fbb1f16b
+      etag:
+      - E103OYOBYVGHDZ
+      location:
+      - https://cloudfront.amazonaws.com/2012-07-01/streaming-distribution/ECO1BY8RW36Z9
+      content-type:
+      - text/xml
+      content-length:
+      - '1346'
+      date:
+      - Wed, 08 May 2013 19:55:13 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <StreamingDistribution xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><Id>ECO1BY8RW36Z9</Id><Status>InProgress</Status><LastModifiedTime>2013-05-08T19:55:13.398Z</LastModifiedTime><DomainName>so8rpta93fl29.cloudfront.net</DomainName><ActiveTrustedSigners><Enabled>true</Enabled><Quantity>1</Quantity><Items><Signer><AwsAccountNumber>self</AwsAccountNumber><KeyPairIds><Quantity>0</Quantity></KeyPairIds></Signer></Items></ActiveTrustedSigners><StreamingDistributionConfig><CallerReference>2013-05-08T21:55:12+02:00
+      3916287814</CallerReference><S3Origin><DomainName>belkacem.rebbouh.com.s3.amazonaws.com</DomainName><OriginAccessIdentity>origin-access-identity/cloudfront/E1WAPXK5AQJ6A9</OriginAccessIdentity></S3Origin><Aliases><Quantity>2</Quantity><Items><CNAME>belkacem.rebbouh.com</CNAME><CNAME>belka.rebbouh.com</CNAME></Items></Aliases><Comment>Created
+      with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment><Logging><Enabled>true</Enabled><Bucket>belkacem.rebbouh.com.s3.amazonaws.com</Bucket><Prefix>distribution_test</Prefix></Logging><TrustedSigners><Enabled>true</Enabled><Quantity>1</Quantity><Items><AwsAccountNumber>self</AwsAccountNumber></Items></TrustedSigners><PriceClass>PriceClass_All</PriceClass><Enabled>false</Enabled></StreamingDistributionConfig></StreamingDistribution>'
+    http_version: '1.1'

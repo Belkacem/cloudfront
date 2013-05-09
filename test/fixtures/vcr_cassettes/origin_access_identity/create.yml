@@ -1,0 +1,37 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/origin-access-identity/cloudfront
+    body: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<CloudFrontOriginAccessIdentityConfig
+      xmlns=\"http://cloudfront.amazonaws.com/doc/2012-07-01/\">\n  <CallerReference>2013-05-08T11:58:37+02:00
+      737090926</CallerReference>\n  <Comment>Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment>\n</CloudFrontOriginAccessIdentityConfig>\n"
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:5zZyxrvqXglc/Nmxm/PDgPXlCHI=
+      date:
+      - Wed, 08 May 2013 18:46:53 GMT
+      content-type:
+      - text/xml
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 201
+      message: Created
+    headers:
+      x-amzn-requestid:
+      - a76b664d-b80f-11e2-afc5-b7cae8058fb4
+      etag:
+      - E1PEIV8EG23R37
+      location:
+      - https://cloudfront.amazonaws.com/2012-07-01/origin-access-identity/cloudfront/E19SYAD0RHLA79
+      content-type:
+      - text/xml
+      content-length:
+      - '540'
+      date:
+      - Wed, 08 May 2013 18:46:55 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <CloudFrontOriginAccessIdentity xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><Id>E19SYAD0RHLA79</Id><S3CanonicalUserId>ff39d98a546e509fc04ae0a5c5cceb204632213d3a3e9e6c1937a3f9a0eec665e3f6f03c63f0bf0600df7ddd5b4d3672</S3CanonicalUserId><CloudFrontOriginAccessIdentityConfig><CallerReference>2013-05-08T11:58:37+02:00
+      737090926</CallerReference><Comment>Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront</Comment></CloudFrontOriginAccessIdentityConfig></CloudFrontOriginAccessIdentity>'
+    http_version: '1.1'

@@ -55,6 +55,3 @@ nbproject
 
 # For rubymine
 .idea
-
-# ignore fixtures.
-test/fixtures/

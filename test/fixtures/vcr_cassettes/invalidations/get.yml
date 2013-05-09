@@ -1,0 +1,31 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://cloudfront.amazonaws.com:443/2012-07-01/distribution/E3NNQMNUOKN8IR/invalidation/I9UMIIXC1VYHY
+    body: 
+    headers:
+      authorization:
+      - AWS AKIAIC7BDNGOH4G3VFAQ:GoIgLlsnlbsE7tpZi/gMXus12zk=
+      date:
+      - Thu, 09 May 2013 00:10:54 GMT
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-amzn-requestid:
+      - eabadeea-b83c-11e2-998d-5d3e9d1aedd9
+      content-type:
+      - text/xml
+      content-length:
+      - '392'
+      date:
+      - Thu, 09 May 2013 00:10:54 GMT
+    body: ! '<?xml version="1.0"?>
+
+      <Invalidation xmlns="http://cloudfront.amazonaws.com/doc/2012-07-01/"><Id>I9UMIIXC1VYHY</Id><Status>InProgress</Status><CreateTime>2013-05-09T00:01:12.842Z</CreateTime><InvalidationBatch><Paths><Quantity>1</Quantity><Items><Path>/favicon.ico</Path></Items></Paths><CallerReference>2013-05-09T02:01:12+02:00
+      5387714030</CallerReference></InvalidationBatch></Invalidation>'
+    http_version: '1.1'
