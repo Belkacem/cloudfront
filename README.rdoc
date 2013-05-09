@@ -1,0 +1,76 @@
+= cloudfront
+
+A simple wrapper to cloudfront API.
+
+== Usage
+
+    cloudfront = Cloudfront.new('aws_access_key_id', 'aws_secret_access_key')
+
+Create a distribution
+    download_distribution = DownloadDistribution.new do
+      self.cnames.concat ["test.com", "test2.com"]
+      self.default_root_object = "/index.php"
+      self.origins.push Origin.new {
+        self.id = "test origin"
+        self.domain_name = "example.com"
+        self.http_port = 90
+        self.https_port = 90
+      }
+      self.origins.push Origin.new {
+        self.id = "test origin 2"
+        self.domain_name = "example2.com"
+        self.origin_access_identity = "origin-access-identity/cloudfront/ID"
+      }
+      self.default_cache_behavior = CacheBehavior.new {
+        self.is_default = true
+        self.target_origin_id = "test origin"
+        self.query_string_forward = true
+      }
+      self.cache_behaviors.push CacheBehavior.new {
+        self.path_pattern = "*.jpg"
+        self.target_origin_id = "test origin"
+        self.query_string_forward = true
+        self.cookies_forward_policy = "whitelist"
+        self.cookies_to_forward = "cookies"
+        self.trusted_signers = TrustedSigners.new {
+          self.enabled = true
+          self.trusted_signers.push "signer"
+        }
+      }
+
+      self.logging = Logging.new {
+        self.enabled = true
+        self.bucket = "belkacem.rebbouh.com.s3.amazonaws.com"
+        self.prefix = "distribution_test"
+      }
+      self.price_class = "PriceClass_All"
+    end
+
+Then call
+    cloudfront.download_distribution_create(download_distribution)
+
+See tests and documentation for more actions.
+
+== Installation
+
+    gem install cloudfront
+
+Then run the following command in the gem folder:
+
+    rake install
+
+== Contributing to cloudfront
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+Copyright (c) 2011 Belkacem REBBOUH. See LICENSE.txt for
+further details.
+

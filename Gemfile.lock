@@ -1,0 +1,51 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.3.4)
+    crack (0.3.2)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
+    git (1.2.5)
+    jeweler (1.8.4)
+      bundler (~> 1.0)
+      git (>= 1.2.5)
+      rake
+      rdoc
+    json (1.7.7)
+    minitest (4.7.4)
+    multi_json (1.7.3)
+    multi_xml (0.5.3)
+    multipart-post (1.2.0)
+    nokogiri (1.5.9)
+    rake (10.0.4)
+    rdoc (4.0.1)
+      json (~> 1.4)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
+    timecop (0.6.1)
+    vcr (1.11.3)
+    webmock (1.7.10)
+      addressable (~> 2.2, > 2.2.5)
+      crack (>= 0.1.7)
+    yard (0.8.6.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler
+  faraday
+  faraday_middleware
+  jeweler
+  minitest
+  multi_xml
+  nokogiri
+  simplecov
+  timecop
+  vcr (~> 1.11.3)
+  webmock (~> 1.7.0)
+  yard
