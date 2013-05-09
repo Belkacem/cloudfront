@@ -1,0 +1,7 @@
+# Don't try to run this binary directory. Instead:
+# * `bundle exec cloudfront` if part of a bundle
+# * `cloudfront` if installed through rubygems, relying on the rubygem wrapper
+
+require 'cloudfront'
+
+exit Cloudfront::CommandLine::Application.run!(*ARGV)
