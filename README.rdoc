@@ -1,4 +1,4 @@
-= cloudfront  [![Build Status](https://travis-ci.org/Belkacem/cloudfront.png?branch=master)](https://travis-ci.org/Belkacem/cloudfront)
+= cloudfront [![Build Status](https://travis-ci.org/Belkacem/cloudfront.png?branch=master)](https://travis-ci.org/Belkacem/cloudfront)
 
 A simple wrapper to cloudfront API.
 
