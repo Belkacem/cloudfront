@@ -6,13 +6,8 @@ class Cloudfront
   module Distribution
     class DownloadDistributionTest < MiniTest::Unit::TestCase
 
-      include Cloudfront::Connection
-      include Cloudfront::Distribution::DownloadDistribution
-
-      attr_accessor :connection
-
       def setup
-        @connection = build_connection(AWS_CREDENTIALS[:aws_access_key_id], AWS_CREDENTIALS[:aws_secret_access_key])
+        @cloudfront = Cloudfront.new(AWS_CREDENTIALS[:aws_access_key_id],AWS_CREDENTIALS[:aws_secret_access_key])
         @sample_distribution = Helpers::DownloadDistribution.new do
           self.caller_reference = "2013-05-08T11:58:37+02:00 7379539126"
           self.cnames.concat ["example1.com", "example2.com"]
@@ -45,7 +40,7 @@ class Cloudfront
 
       def test_download_distribution_create
         VCR.use_cassette('download_distribution/create') do
-          actual = download_distribution_create(@sample_distribution)
+          actual = @cloudfront.download_distribution_create(@sample_distribution)
           expected_status = 201
           assert_equal(expected_status, actual.status)
         end
@@ -53,7 +48,7 @@ class Cloudfront
 
       def test_download_distribution_list
         VCR.use_cassette('download_distribution/list') do
-          actual = download_distribution_list
+          actual = @cloudfront.download_distribution_list
           expected_status = 200
           assert_equal(expected_status, actual.status)
         end
@@ -61,7 +56,7 @@ class Cloudfront
 
       def test_download_distribution_get
         VCR.use_cassette('download_distribution/get') do
-          actual = download_distribution_get("E30FYUOU1WV09Z")
+          actual = @cloudfront.download_distribution_get("E30FYUOU1WV09Z")
           expected_status = 200
           assert_equal(expected_status, actual.status)
         end
@@ -69,7 +64,7 @@ class Cloudfront
 
       def test_download_distribution_get_config
         VCR.use_cassette('download_distribution/get_config_disabled') do
-          actual = download_distribution_get_config("E30FYUOU1WV09Z")
+          actual = @cloudfront.download_distribution_get_config("E30FYUOU1WV09Z")
           expected_status = 200
           assert_equal(expected_status, actual.status)
         end
@@ -77,7 +72,7 @@ class Cloudfront
 
       def test_download_distribution_put_config
         VCR.use_cassette('download_distribution/put_config_disabled') do
-          actual = download_distribution_put_config("E30FYUOU1WV09Z", @sample_distribution, "E1MFMJQXOWT9WE")
+          actual = @cloudfront.download_distribution_put_config("E30FYUOU1WV09Z", @sample_distribution, "E1MFMJQXOWT9WE")
           expected_status = 200
           assert_equal(expected_status, actual.status)
         end
@@ -86,7 +81,7 @@ class Cloudfront
       def test_download_distribution_enable
         VCR.use_cassette('download_distribution/get_config_disabled') do
           VCR.use_cassette('download_distribution/put_config_enabled') do
-            actual = download_distribution_enable("E30FYUOU1WV09Z")
+            actual = @cloudfront.download_distribution_enable("E30FYUOU1WV09Z")
             expected_status = 200
             assert_equal(expected_status, actual.status)
           end
@@ -96,7 +91,7 @@ class Cloudfront
       def test_download_distribution_disable
         VCR.use_cassette('download_distribution/get_config_enabled') do
           VCR.use_cassette('download_distribution/put_config_disabled') do
-            actual = download_distribution_disable("E30FYUOU1WV09Z")
+            actual = @cloudfront.download_distribution_disable("E30FYUOU1WV09Z")
             expected_status = 200
             assert_equal(expected_status, actual.status)
           end
@@ -105,7 +100,7 @@ class Cloudfront
 
       def test_download_distribution_delete
         VCR.use_cassette('download_distribution/delete') do
-          actual = download_distribution_delete("E30FYUOU1WV09Z")
+          actual = @cloudfront.download_distribution_delete("E30FYUOU1WV09Z")
           expected_status = 204
           assert_equal(expected_status, actual.status)
         end

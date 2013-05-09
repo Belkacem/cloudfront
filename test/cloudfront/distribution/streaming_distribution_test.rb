@@ -6,13 +6,8 @@ class Cloudfront
   module Distribution
     class StreamingDistributionTest < MiniTest::Unit::TestCase
 
-      include Cloudfront::Connection
-      include Cloudfront::Distribution::StreamingDistribution
-
-      attr_accessor :connection
-
       def setup
-        @connection = build_connection(AWS_CREDENTIALS[:aws_access_key_id], AWS_CREDENTIALS[:aws_secret_access_key])
+        @cloudfront = Cloudfront.new(AWS_CREDENTIALS[:aws_access_key_id],AWS_CREDENTIALS[:aws_secret_access_key])
         @sample_distribution = Helpers::StreamingDistribution.new do
           self.domain_name = "belkacem.rebbouh.com.s3.amazonaws.com"
           self.origin_access_identity = "origin-access-identity/cloudfront/E1WAPXK5AQJ6A9"
@@ -29,7 +24,7 @@ class Cloudfront
 
       def test_streaming_distribution_create
         VCR.use_cassette('streaming_distribution/create') do
-          actual = streaming_distribution_create(@sample_distribution)
+          actual = @cloudfront.streaming_distribution_create(@sample_distribution)
           expected_status = 201
           assert_equal(expected_status, actual.status)
         end
@@ -37,7 +32,7 @@ class Cloudfront
 
       def test_streaming_distribution_list
         VCR.use_cassette('streaming_distribution/list') do
-          actual = streaming_distribution_list
+          actual = @cloudfront.streaming_distribution_list
           expected_status = 200
           assert_equal(expected_status, actual.status)
         end
@@ -45,7 +40,7 @@ class Cloudfront
 
       def test_streaming_distribution_get
         VCR.use_cassette('streaming_distribution/get') do
-          actual = streaming_distribution_get("ECO1BY8RW36Z9")
+          actual = @cloudfront.streaming_distribution_get("ECO1BY8RW36Z9")
           expected_status = 200
           assert_equal(expected_status, actual.status)
         end
@@ -53,7 +48,7 @@ class Cloudfront
 
       def test_streaming_distribution_get_config
         VCR.use_cassette('streaming_distribution/get_config_disabled') do
-          actual = streaming_distribution_get_config("ECO1BY8RW36Z9")
+          actual = @cloudfront.streaming_distribution_get_config("ECO1BY8RW36Z9")
           expected_status = 200
           assert_equal(expected_status, actual.status)
         end
@@ -62,7 +57,7 @@ class Cloudfront
       def test_streaming_distribution_enable
         VCR.use_cassette('streaming_distribution/get_config_disabled') do
           VCR.use_cassette('streaming_distribution/put_config_enabled') do
-            actual = streaming_distribution_enable("ECO1BY8RW36Z9")
+            actual = @cloudfront.streaming_distribution_enable("ECO1BY8RW36Z9")
             expected_status = 200
             assert_equal(expected_status, actual.status)
           end
@@ -72,7 +67,7 @@ class Cloudfront
       def test_streaming_distribution_disable
         VCR.use_cassette('streaming_distribution/get_config_enabled') do
           VCR.use_cassette('streaming_distribution/put_config_disabled') do
-            actual = streaming_distribution_disable("ECO1BY8RW36Z9")
+            actual = @cloudfront.streaming_distribution_disable("ECO1BY8RW36Z9")
             expected_status = 200
             assert_equal(expected_status, actual.status)
           end
@@ -81,7 +76,7 @@ class Cloudfront
 
       def test_streaming_distribution_delete
         VCR.use_cassette('streaming_distribution/delete') do
-          actual = streaming_distribution_delete("ECO1BY8RW36Z9")
+          actual = @cloudfront.streaming_distribution_delete("ECO1BY8RW36Z9")
           expected_status = 204
           assert_equal(expected_status, actual.status)
         end

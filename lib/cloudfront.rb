@@ -30,7 +30,7 @@ class Cloudfront
   end
   
   def credentials_test
-    distribution_list.status == 200
+    download_distribution_list.status == 200
   end
 end
 
