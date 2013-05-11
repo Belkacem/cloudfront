@@ -12,10 +12,13 @@ end
 require 'rake'
 
 require 'jeweler'
+
+require_relative 'lib/cloudfront/version'
+
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "cloudfront"
-  gem.version = '1.2'
+  gem.version = Cloudfront::VERSION
   gem.homepage = "https://github.com/Belkacem/cloudfront"
   gem.license = "MIT"
   gem.summary = %Q{A tested Cloudfront™ gem}
