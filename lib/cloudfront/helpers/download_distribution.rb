@@ -138,7 +138,7 @@ class Cloudfront
       #</DistributionConfig>
       def build_xml(xml)
         check_configuration
-        xml.DistributionConfig('xmlns' => "http://cloudfront.amazonaws.com/doc/#{Cloudfront::Utils::Api.version}/") {
+        xml.DistributionConfig('xmlns' => "http://cloudfront.amazonaws.com/doc/#{Cloudfront::API_VERSION}/") {
           xml.CallerReference @caller_reference
           @aliases.build_xml(xml)
           xml.DefaultRootObject @default_root_object

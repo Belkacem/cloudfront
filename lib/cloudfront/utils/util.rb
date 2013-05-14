@@ -1,5 +1,11 @@
 # encoding: UTF-8
 
+require_relative 'string'
+require_relative 'array'
+
+require 'cloudfront/utils/configuration_checker'
+require 'cloudfront/utils/xml_serializer'
+
 class Cloudfront
   module Utils
     module Util

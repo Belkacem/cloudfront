@@ -47,7 +47,7 @@ class Cloudfront
 
       def build_xml(xml)
         check_configuration
-        xml.CloudFrontOriginAccessIdentityConfig('xmlns' => "http://cloudfront.amazonaws.com/doc/#{Cloudfront::Utils::Api.version}/") {
+        xml.CloudFrontOriginAccessIdentityConfig('xmlns' => "http://cloudfront.amazonaws.com/doc/#{Cloudfront::API_VERSION}/") {
           xml.CallerReference @caller_reference
           xml.Comment @comment
         }

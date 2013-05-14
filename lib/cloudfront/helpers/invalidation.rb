@@ -63,7 +63,7 @@ class Cloudfront
       # </InvalidationBatch>
       def build_xml(xml)
         check_configuration
-        xml.InvalidationBatch('xmlns' => "http://cloudfront.amazonaws.com/doc/#{Cloudfront::Utils::Api.version}/") {
+        xml.InvalidationBatch('xmlns' => "http://cloudfront.amazonaws.com/doc/#{Cloudfront::API_VERSION}/") {
           xml.Paths {
             xml.Quantity @files.size
             if @files.size > 0

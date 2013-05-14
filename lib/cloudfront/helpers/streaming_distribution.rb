@@ -133,7 +133,7 @@ class Cloudfront
       #</StreamingDistributionConfig>
       def build_xml(xml)
         check_configuration
-        xml.StreamingDistributionConfig('xmlns' => "http://cloudfront.amazonaws.com/doc/#{Cloudfront::Utils::Api.version}/") {
+        xml.StreamingDistributionConfig('xmlns' => "http://cloudfront.amazonaws.com/doc/#{Cloudfront::API_VERSION}/") {
           xml.CallerReference @caller_reference
           @s3_origin.build_xml(xml)
           @aliases.build_xml(xml)

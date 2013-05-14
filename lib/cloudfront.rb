@@ -1,17 +1,15 @@
 # encoding: UTF-8
 
-require 'cloudfront/connection'
-
 require 'cloudfront/utils/util'
-require 'cloudfront/utils/api'
-require 'cloudfront/utils/configuration_checker'
-require 'cloudfront/utils/xml_serializer'
+
+require 'cloudfront/connection'
+require 'cloudfront/version'
 
 require 'cloudfront/distribution/download_distribution'
 require 'cloudfront/distribution/streaming_distribution'
 
-require 'cloudfront/origin_access_identity/origin_access_identity'
 require 'cloudfront/invalidation/invalidations'
+require 'cloudfront/origin_access_identity/origin_access_identity'
 
 # Errors and exceptions
 require 'cloudfront/exceptions/distribution_configuration_exception'

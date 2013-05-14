@@ -8,7 +8,7 @@ class Cloudfront
     module DownloadDistribution
       include Distribution
 
-      ::DOWNLOAD_DISTRIBUTION_URL = "/#{Cloudfront::Utils::Api.version}/distribution"
+      DOWNLOAD_DISTRIBUTION_URL = "/#{Cloudfront::API_VERSION}/distribution"
 
       # Creates a download distribution.
       # @param distribution [Cloudfront::Helpers::DownloadDistribution] a distribution configuration wrapper

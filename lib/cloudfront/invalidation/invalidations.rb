@@ -5,7 +5,7 @@ require 'cloudfront/helpers/invalidation'
 class Cloudfront
   module Invalidation
     module Invalidations
-      INVALIDATION_URL = "/#{Cloudfront::Utils::Api.version}/distribution/%s/invalidation"
+      INVALIDATION_URL = "/#{Cloudfront::API_VERSION}/distribution/%s/invalidation"
 
       # Invalidates files
       # @param distribution_id [String] The id of the distribution.

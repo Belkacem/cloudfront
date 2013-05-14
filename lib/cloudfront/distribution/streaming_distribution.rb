@@ -8,7 +8,7 @@ class Cloudfront
     module StreamingDistribution
       include Distribution
 
-      ::STREAMING_DISTRIBUTION_URL = "/#{Cloudfront::Utils::Api.version}/streaming-distribution"
+      STREAMING_DISTRIBUTION_URL = "/#{Cloudfront::API_VERSION}/streaming-distribution"
 
       # Creates a streaming distribution.
       # @param distribution [Cloudfront::Helpers::DownloadDistribution] a distribution configuration wrapper
