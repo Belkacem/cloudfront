@@ -22,7 +22,6 @@ Create a distribution
         self.origin_access_identity = "origin-access-identity/cloudfront/ID"
       }
       self.default_cache_behavior = CacheBehavior.new {
-        self.is_default = true
         self.target_origin_id = "test origin"
         self.query_string_forward = true
       }
