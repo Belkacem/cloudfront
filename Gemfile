@@ -4,6 +4,7 @@ gem "faraday", ">= 0.8.7"
 gem "faraday_middleware", ">= 0.9.0"
 gem "multi_xml"
 gem "nokogiri"
+gem "trollop", "~> 2.0"
 
 # Add dependencies to develop your gem here.
 group :development do
