@@ -43,6 +43,21 @@ class Cloudfront
       end
 
       def validate
+        init_internals
+        # Error checking
+        error_messages.push "The caller_reference shouldn't be empty" if @caller_reference.empty?
+        @aliases.check_configuration
+        @origins_container.check_configuration
+        @default_cache_behavior.check_configuration
+        # Making the default cache behavior to true
+        @default_cache_behavior.is_default = true
+        @behaviors.check_configuration
+        @logging.check_configuration
+        error_messages.push "price_class is invalid should be in #{Cloudfront::Utils::Util::PRICE_CLASS.join(', ')}" unless Cloudfront::Utils::Util::PRICE_CLASS.include?(@price_class)
+        error_messages.push "enabled should be a boolean" unless !!@enabled == @enabled
+      end
+      
+      def init_internals
         this = self
 
         # aliases and behaviors are internal structures.
@@ -57,18 +72,6 @@ class Cloudfront
         @origins_container = Origins.new do
           self.origins = this.origins
         end
-        
-        # Error checking
-        error_messages.push "The caller_reference shouldn't be empty" if @caller_reference.empty?
-        @aliases.check_configuration
-        @origins_container.check_configuration
-        @default_cache_behavior.check_configuration
-        # Making the default cache behavior to true
-        @default_cache_behavior.is_default = true
-        @behaviors.check_configuration
-        @logging.check_configuration
-        error_messages.push "price_class is invalid should be in #{Cloudfront::Utils::Util::PRICE_CLASS.join(', ')}" unless Cloudfront::Utils::Util::PRICE_CLASS.include?(@price_class)
-        error_messages.push "enabled should be a boolean" unless !!@enabled == @enabled
       end
       
       # Creates a distribution configuration wrapper from a hash
