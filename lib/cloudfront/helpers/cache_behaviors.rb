@@ -11,9 +11,8 @@ class Cloudfront
 
       attr_accessor :cache_behaviors
 
-      def initialize(&block)
-        #set default values
-        @cache_behaviors = []
+      def initialize(cache_behaviors = [], &block)
+        @cache_behaviors = cache_behaviors
 
         #set values from block
         instance_eval &block if block_given?

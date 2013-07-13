@@ -11,10 +11,11 @@ class Cloudfront
                     :bucket,
                     :prefix
 
-      def initialize(&block)
-        #set default values
-        @enabled = false
-        @include_cookies = false
+      def initialize(params = {}, &block)
+        @enabled = params[:enabled] || false
+        @include_cookies = params[:include_cookies] || false
+        @bucket = params[:bucket]
+        @prefix = params[:prefix]
         #set values from block
         instance_eval &block if block_given?
       end

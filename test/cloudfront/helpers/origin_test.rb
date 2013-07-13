@@ -7,13 +7,12 @@ class Cloudfront
     class OriginTest < MiniTest::Unit::TestCase
 
       def test_serialize_deserialize
-        origin = Origin.new {
-          self.id = "test origin"
-          self.domain_name = "example.com"
-          self.http_port = 90
-          self.https_port = 90
-        }
-
+        origin = Origin.new ({
+          id: "test origin",
+          domain_name: "example.com",
+          http_port:  90,
+          https_port: 90
+        })
 
         xml = origin.to_xml
         xml_from_hash = Origin.from_hash(MultiXml.parse(xml)).to_xml

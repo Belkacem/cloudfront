@@ -11,10 +11,9 @@ class Cloudfront
       attr_accessor :caller_reference,
                     :files
 
-      def initialize(&block)
-        #setting default values
-        @caller_reference = Cloudfront::Utils::Util.generate_caller_reference
-        @files = []
+      def initialize(params = {}, &block)
+        @caller_reference = params[:caller_reference] || Cloudfront::Utils::Util.generate_caller_reference
+        @files = params[:files] || []
 
         #set value from block
         instance_eval &block if block_given?

@@ -23,20 +23,19 @@ class Cloudfront
                     :price_class,
                     :enabled
 
-      def initialize(&block)
-        #setting default values
-        @caller_reference = Cloudfront::Utils::Util.generate_caller_reference
-        @cnames = []
-        @default_root_object = "/index.html"
-        @origins = []
-        @default_cache_behavior = CacheBehavior.new do
+      def initialize(params = {}, &block)
+        @caller_reference = params[:caller_reference] || Cloudfront::Utils::Util.generate_caller_reference
+        @cnames = params[:cnames] || []
+        @default_root_object = params[:default_root_object] || "/index.html"
+        @origins = params[:origins] || []
+        @default_cache_behavior = params[:default_cache_behavior] || CacheBehavior.new do
           self.is_default = true
         end
-        @cache_behaviors = []
-        @comment = "Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront"
-        @logging = Logging.new
-        @price_class = "PriceClass_All"
-        @enabled = false
+        @cache_behaviors = params[:cache_behaviors] || []
+        @comment = params[:comment] || "Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront"
+        @logging = params[:logging] || Logging.new
+        @price_class = params[:price_class] ||"PriceClass_All"
+        @enabled = params[:enabled] || false
 
         #set value from block
         instance_eval &block if block_given?

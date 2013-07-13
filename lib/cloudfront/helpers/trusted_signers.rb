@@ -9,10 +9,9 @@ class Cloudfront
       attr_accessor :enabled,
                     :trusted_signers
 
-      def initialize(&block)
-        #set default values
-        @enabled = false
-        @trusted_signers = []
+      def initialize(params = {}, &block)
+        @enabled = params[:enabled] || false
+        @trusted_signers = params[:trusted_signers] || []
 
         #set values from block
         instance_eval &block if block_given?

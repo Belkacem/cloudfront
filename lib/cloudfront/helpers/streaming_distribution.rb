@@ -21,16 +21,17 @@ class Cloudfront
                     :price_class,
                     :enabled
 
-      def initialize(&block)
-        #setting default values
-        @caller_reference = Cloudfront::Utils::Util.generate_caller_reference
-        @s3_origin = S3Origin.new
-        @cnames = []
-        @comment = "Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront"
-        @logging = Logging.new
-        @trusted_signers = []
-        @price_class = "PriceClass_All"
-        @enabled = false
+      def initialize(params = {}, &block)
+        @caller_reference = params[:caller_reference] || Cloudfront::Utils::Util.generate_caller_reference
+        @s3_origin = params[:s3_origin]
+        @domain_name = params[:domain_name]
+        @origin_access_identity = params[:origin_access_identity]
+        @cnames = params[:cnames] || []
+        @comment = params[:comment] || "Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront"
+        @logging = params[:logging] || Logging.new
+        @trusted_signers = params[:trusted_signers] || []
+        @price_class = params[:price_class] || "PriceClass_All"
+        @enabled = params[:enabled] || false
 
         #set value from block
         instance_eval &block if block_given?
@@ -40,9 +41,11 @@ class Cloudfront
         this = self
 
         # s3_origin, aliases and trusted_signers_container are internal structures.
-        @s3_origin = S3Origin.new do
-          self.domain_name = this.domain_name
-          self.origin_access_identity = this.origin_access_identity
+        if @s3_origin.nil? || !@s3_origin.is_a?(S3Origin)
+          @s3_origin = S3Origin.new do
+            self.domain_name = this.domain_name
+            self.origin_access_identity = this.origin_access_identity
+          end
         end
 
         @aliases = Aliases.new do

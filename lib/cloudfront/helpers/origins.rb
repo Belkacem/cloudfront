@@ -10,9 +10,8 @@ class Cloudfront
 
       attr_accessor :origins
 
-      def initialize(&block)
-        #set default values
-        @origins = []
+      def initialize(params = {}, &block)
+        @origins = params[:origins] || []
 
         #set values from block
         instance_eval &block if block_given?
@@ -20,7 +19,7 @@ class Cloudfront
 
       def validate
         # put origin in a list (this is done for single origin distributions)
-        @origins = [@origins] unless @origins.is_a? Array
+        @origins = Array.wrap @origins
         
         for origin in @origins
           if origin.is_a?(Origin)

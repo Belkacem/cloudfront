@@ -9,7 +9,9 @@ class Cloudfront
       attr_accessor :domain_name,
                     :origin_access_identity
 
-      def initialize(&block)
+      def initialize(params = {}, &block)
+        @domain_name = params[:domain_name]
+        @origin_access_identity = params[:origin_access_identity]
         #set value from block
         instance_eval &block if block_given?
       end

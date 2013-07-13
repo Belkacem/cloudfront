@@ -13,11 +13,13 @@ class Cloudfront
                     :https_port,
                     :origin_protocol_policy
 
-      def initialize(&block)
-        #set default values
-        @http_port = 80
-        @https_port = 443
-        @origin_protocol_policy = "match-viewer"
+      def initialize(params = {}, &block)
+        @id = params[:id]
+        @domain_name = params[:domain_name] unless
+        @origin_access_identity = params[:origin_access_identity]
+        @http_port = params[:http_port] || 80
+        @https_port = params[:http_ports] || 443
+        @origin_protocol_policy = params[:origin_protocol_policy] || "match-viewer"
         #set value from block
         instance_eval &block if block_given?
       end

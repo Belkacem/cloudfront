@@ -9,10 +9,10 @@ class Cloudfront
       attr_accessor :caller_reference,
                     :comment
 
-      def initialize(&block)
+      def initialize(params = {}, &block)
         #setting default values
-        @caller_reference = Cloudfront::Utils::Util.generate_caller_reference
-        @comment = "Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront"
+        @caller_reference = params[:caller_reference] || Cloudfront::Utils::Util.generate_caller_reference
+        @comment = params[:comment] || "Created with cloudfront Gem, visit https://github.com/Belkacem/cloudfront"
 
         #set value from block
         instance_eval &block if block_given?

@@ -18,14 +18,17 @@ class Cloudfront
                     :viewer_protocol_policy,
                     :min_ttl
 
-      def initialize(&block)
+      def initialize(params = {}, &block)
         #set default values
         @is_default = false
-        @query_string_forward = true
-        @cookies_forward_policy = "all"
-        @trusted_signers = TrustedSigners.new
-        @viewer_protocol_policy = "allow-all"
-        @min_ttl = 86400 # one day as the default minimum ttl
+        @path_pattern = params[:path_pattern]
+        @target_origin_id = params[:target_origin_id]
+        @query_string_forward = params[:query_string_forward] || true
+        @cookies_forward_policy = params[:cookies_forward_policy] || "all"
+        @cookies_to_forward = params[:cookies_to_forward]
+        @trusted_signers = params[:trusted_signers] || TrustedSigners.new
+        @viewer_protocol_policy = params[:viewer_protocol_policy] || "allow-all"
+        @min_ttl = params[:min_ttl] || 86400 # one day as the default minimum ttl
 
         #set values from block
         instance_eval &block if block_given?

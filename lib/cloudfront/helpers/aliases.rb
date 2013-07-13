@@ -8,9 +8,8 @@ class Cloudfront
 
       attr_accessor :cnames
 
-      def initialize(&block)
-        #set default values
-        @cnames = []
+      def initialize(cnames = [], &block)
+        @cnames = cnames
 
         #set values from block
         instance_eval &block if block_given?
@@ -20,10 +19,9 @@ class Cloudfront
         # some wrapping
         @cnames = Array.wrap @cnames # wraps single elements into an array and removes nil parasites
 
-
         # Some additional checking should be done on cnames.
         for cname in cnames
-          error_messages.push("#{cname} isn't a valid url") unless cname =~  Cloudfront::Utils::Util::URL_REGEXP
+          error_messages.push("#{cname} isn't a valid url") unless cname.is_a?(String) && cname =~  Cloudfront::Utils::Util::URL_REGEXP
         end
       end
 
