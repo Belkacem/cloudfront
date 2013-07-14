@@ -26,6 +26,7 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
+    trollop (2.0)
     vcr (1.11.3)
     webmock (1.7.10)
       addressable (~> 2.2, > 2.2.5)
@@ -44,6 +45,7 @@ DEPENDENCIES
   multi_xml
   nokogiri
   simplecov
+  trollop (~> 2.0)
   vcr (~> 1.11)
   webmock (>= 1.7, <= 1.8)
   yard
