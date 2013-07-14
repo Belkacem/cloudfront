@@ -6,9 +6,9 @@ class Cloudfront
   module Helpers
     class InvalidationTest < MiniTest::Unit::TestCase
       def test_serialize_deserialize
-        invalidation = Helpers::Invalidation.new do
-          self.files.concat ["/test.txt", "/test2.txt"]
-        end
+        invalidation = Invalidation.new ({
+            files: ["/test.txt", "/test2.txt"]
+        })
 
         xml = invalidation.to_xml
         xml_from_hash = Invalidation.from_hash(MultiXml.parse(xml)).to_xml

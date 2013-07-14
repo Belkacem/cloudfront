@@ -8,11 +8,11 @@ class Cloudfront
 
       def setup
         @cloudfront = Cloudfront.new(AWS_CREDENTIALS[:aws_access_key_id],AWS_CREDENTIALS[:aws_secret_access_key])
-        @sample_distribution = Helpers::StreamingDistribution.new do
+        @sample_distribution = StreamingDistribution.new do
           self.domain_name = "belkacem.rebbouh.com.s3.amazonaws.com"
           self.origin_access_identity = "origin-access-identity/cloudfront/E1WAPXK5AQJ6A9"
           self.cnames.concat ["belkacem.rebbouh.com", "belka.rebbouh.com"]
-          self.logging = Helpers::Logging.new {
+          self.logging = Logging.new {
             self.enabled = true
             self.bucket = "belkacem.rebbouh.com.s3.amazonaws.com"
             self.prefix = "distribution_test"

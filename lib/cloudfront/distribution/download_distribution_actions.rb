@@ -73,7 +73,7 @@ class Cloudfront
 
 private
       def get_download_distribution_wrapper(hash)
-        Cloudfront::Helpers::DownloadDistribution.from_hash hash
+        DownloadDistribution.from_hash hash
       end
 
     end

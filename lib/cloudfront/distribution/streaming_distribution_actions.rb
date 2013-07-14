@@ -74,7 +74,7 @@ class Cloudfront
 
 private
       def get_streaming_distribution_wrapper(hash)
-        Cloudfront::Helpers::StreamingDistribution.from_hash hash
+        StreamingDistribution.from_hash hash
       end
     end
   end

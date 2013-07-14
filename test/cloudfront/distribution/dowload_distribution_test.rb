@@ -8,29 +8,29 @@ class Cloudfront
 
       def setup
         @cloudfront = Cloudfront.new(AWS_CREDENTIALS[:aws_access_key_id],AWS_CREDENTIALS[:aws_secret_access_key])
-        @sample_distribution = Helpers::DownloadDistribution.new do
+        @sample_distribution = DownloadDistribution.new do
           self.caller_reference = "2013-05-08T11:58:37+02:00 7379539126"
           self.cnames.concat ["example1.com", "example2.com"]
           self.default_root_object = "index.php"
-          self.origins.push Cloudfront::Helpers::Origin.new {
+          self.origins.push Origin.new {
             self.id = "blog"
             self.domain_name = "blog.rebbouh.com"
           }
-          self.default_cache_behavior = Cloudfront::Helpers::CacheBehavior.new {
+          self.default_cache_behavior = CacheBehavior.new {
             self.target_origin_id = "blog"
             self.query_string_forward = true
           }
-          self.cache_behaviors.push Cloudfront::Helpers::CacheBehavior.new {
+          self.cache_behaviors.push CacheBehavior.new {
             self.path_pattern = "*.jpg"
             self.target_origin_id = "blog"
             self.query_string_forward = false
             self.cookies_forward_policy = "whitelist"
             self.cookies_to_forward = "cookies"
-            self.trusted_signers = Cloudfront::Helpers::TrustedSigners.new {
+            self.trusted_signers = TrustedSigners.new {
               self.enabled = false
             }
           }
-          self.logging = Cloudfront::Helpers::Logging.new {
+          self.logging = Logging.new {
             self.enabled = true
             self.bucket = "belkacem.rebbouh.com.s3.amazonaws.com"
             self.prefix = "test_distribution"
