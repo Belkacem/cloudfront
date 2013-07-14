@@ -5,8 +5,8 @@ require 'cloudfront/utils/util'
 require 'cloudfront/connection'
 require 'cloudfront/version'
 
-require 'cloudfront/distribution/download_distribution'
-require 'cloudfront/distribution/streaming_distribution'
+require 'cloudfront/distribution/download_distribution_actions'
+require 'cloudfront/distribution/streaming_distribution_actions'
 
 require 'cloudfront/invalidation/invalidations'
 require 'cloudfront/origin_access_identity/origin_access_identity'
@@ -16,8 +16,8 @@ require 'cloudfront/exceptions/distribution_configuration_exception'
 
 class Cloudfront
   include Cloudfront::Connection
-  include Cloudfront::Distribution::DownloadDistribution
-  include Cloudfront::Distribution::StreamingDistribution
+  include Cloudfront::Distribution::DownloadDistributionActions
+  include Cloudfront::Distribution::StreamingDistributionActions
   include Cloudfront::Invalidation::Invalidations
   include Cloudfront::OriginAccessIdentity
 
