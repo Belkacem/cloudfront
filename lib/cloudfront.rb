@@ -18,7 +18,7 @@ class Cloudfront
   include Cloudfront::Connection
   include Cloudfront::Distribution::DownloadDistributionActions
   include Cloudfront::Distribution::StreamingDistributionActions
-  include Cloudfront::Invalidation::Invalidations
+  include Cloudfront::Invalidations
   include Cloudfront::OriginAccessIdentity
 
   # @attr_reader [Faraday::Connection] connection accession to the connection established with cloudfront.
